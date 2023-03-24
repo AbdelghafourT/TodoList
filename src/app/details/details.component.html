@@ -1,0 +1,48 @@
+<!-- <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/tasklist">TaskList</a></li>
+    <li class="breadcrumb-item active"></li>
+  </ol>
+<div class="card">
+    <img class="card-img-top" src="holder.js/100x180/" alt="Title">
+    <div class="card-body">
+        <h4 class="card-title">{{details.taskName}}</h4>
+        <p class="card-text">Text</p>
+    </div>
+</div> -->
+
+<!-- <div class="row">
+    <div class="card mb-3 col-md-6 mx-auto my-5">
+        <h3 class="card-header">Card header</h3>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+</div> -->
+<div class="card mt-5 col-md-8 mx-auto">
+    <div class="card-header">
+      <h3 class="card-title mb-0">Task Information</h3>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{details.taskName}}</h5>
+      <p class="card-text">{{details.description}}.</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>ID:</strong> {{details.id}}</li>
+        <li class="list-group-item"><strong>Status:</strong><span class="badge {{details.status === 'Completed'? 'bg-success' :details.status==='in progress'? 'bg-warning':'bg-primary'}}  mx-2"> {{details.status}}</span></li>
+        <li class="list-group-item"><strong>Due Date:</strong> <time datetime="2023-03-30"> {{details.dueDate | date:'mediumDate'}}</time></li>
+        <li class="list-group-item "><strong>Date Created:</strong> {{details.dateCreation | date:'mediumDate'}}<span style="font-size: smaller; color: gray;">&nbsp;{{details.dateCreation | date:'shortTime'}}</span></li>
+      </ul>
+    </div>
+    <div class="card-footer text-muted">
+      <div class="d-flex justify-content-between align-items-center">
+        <button type="button" class="btn btn-outline-secondary">Edit</button>
+        <button type="button" (click)="deleteThisTask(details.id)" class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,38 @@
+<section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-12 ">
+  
+          <div class="card">
+            <div class="card-header p-3">
+              <h5 class="mb-0"><i class="fa fa-tasks me-2"></i>Task List</h5>
+            </div>
+            <div class="card-body cardlist" data-mdb-perfect-scrollbar="true" style="position: relative; height: 400px">
+  
+              <table class="table mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">TaskName</th>
+                    <th scope="col">Stauts</th>
+                    <th scope="col">DueDate</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="fw-normal"  *ngFor="let tasklist of task; let i = index; let f = first; let l = last; let e = even; let o = odd; let c = count" app-taskitem [tasklist]="tasklist" [isFirst]="i===0" [isLast]="i===task.length - 1" (deleteOneTask)="destroyTask($event)" [ngClass]="{'first-task': f, 'last-task': l}">
+                    
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="card-footer text-end p-3">
+              <button class="btn btn-primary" routerLink="/taskform">Add Task</button>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>

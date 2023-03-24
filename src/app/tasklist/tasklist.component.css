@@ -1,0 +1,12 @@
+.cardlist{
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+/* .first-task {
+    background-color: blue;
+  }
+  
+  .last-task {
+    background-color: red;
+  } */

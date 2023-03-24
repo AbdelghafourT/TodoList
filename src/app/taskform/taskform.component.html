@@ -1,0 +1,87 @@
+<!-- <div class="row" >
+    <div class="col-md-4 mx-auto">
+        <form >
+        <div class="form-group"><label for="title" class="form-label">title</label>
+            <input  formControlName="title" type="text" name="title" id="title" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="content" class="form-label">content</label>
+            <textarea formControlName="content" name="content" class="form-control" id="content" rows="3"></textarea>   
+        </div>
+        <div class="d-grid">
+            <ng-container >
+                <button  class="my-2 btn btn-success"  ><i class="fa fa-send"></i>Submit</button>
+            </ng-container>
+        </div>
+       
+    </form>
+    </div>
+
+</div> -->
+<div class="row mt-5">
+    <div class="col-md-6 mx-auto">
+        <form [formGroup]="taskForm" (ngSubmit)="saveTask()">
+            <div class="form-group">
+                <label for="taskname" class="form-label">Task Name</label>
+                <input formControlName="taskName" type="text" name="taskName" id="taskname" class="form-control">
+                <!-- Validation taskName-->
+                <div class="alert alert-danger" *ngIf="taskForm.get('taskName')?.invalid && (taskForm.get('taskName')?.touched || taskForm.get('taskname')?.dirty)">
+                    <div *ngIf="taskForm.get('taskName')?.errors?.['required']">
+                        this field is required
+                    </div>
+                    <div *ngIf="taskForm.get('taskName')?.errors?.['minlength']">
+                        this field should be greater than 5 caracter
+                    </div>
+                     
+                    <div  *ngIf="taskForm.get('taskName')?.errors?.['maxlength']">
+                        this max is 19 caracter
+                    </div>
+                    <div *ngIf="taskForm.get('taskName')?.errors?.['pattern']">
+                        this field not respect our pattern
+                    </div>
+                </div>
+                <!--Description-->
+            </div>
+            <div class="form-group">
+                <label for="description" class="form-label">Description</label>
+                <textarea formControlName="description" name="description" class="form-control" id="description" rows="3"></textarea> 
+                <!-- Validation description-->
+                <div class="alert alert-danger" *ngIf="taskForm.get('description')?.invalid && (taskForm.get('description')?.touched || taskForm.get('description')?.dirty)">
+                    <div *ngIf="taskForm.get('description')?.errors?.['required']">
+                        this field is required
+                    </div>
+                    <div *ngIf="taskForm.get('description')?.errors?.['minlength']">
+                        this field should be greater than 8 caracter
+                    </div>
+                     
+                    <div  *ngIf="taskForm.get('description')?.errors?.['maxlength']">
+                        this max is 30 caracter
+                    </div>
+                    <div *ngIf="taskForm.get('description')?.errors?.['pattern']">
+                        this field not respect our pattern
+                    </div>
+                </div>  
+            </div>
+            <!-- <div class="form-group">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" disabled value="Todo" name="status" id="status" class="form-control">
+            </div> -->
+            <div class="form-group">
+                <label for="duedate" class="form-label">DueDate</label>
+                <input formControlName="dueDate"  required type="date"  name="dueDate" id="duedate" class="form-control">
+                <!--Validation DueDate-->
+                <!-- <div class="alert alert-danger" *ngIf="taskForm.get('duedate')?.invalid && (taskForm.get('duedate')?.touched || taskForm.get('duedate')?.dirty)">
+                    <div *ngIf="taskForm.get('duedate')?.errors?.['pattern']">
+                        this field not respect our pattern
+                    </div>
+                </div>   -->
+            </div>
+            <div class="d-grid">
+                <ng-container >
+                    <button   class="my-2 btn btn-success"><i class="fa fa-send"></i>Submit</button>
+                </ng-container>
+            </div>
+        </form>
+    </div>
+</div>
